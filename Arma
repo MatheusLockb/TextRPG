@@ -86,7 +86,7 @@ public class Arma {
         System.out.println("Nome da arma: " + nome);
         System.out.println("Categoria da arma: " + categoria);
         
-        
+        //fim
         
         
     }
