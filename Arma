@@ -1,0 +1,97 @@
+package com.mycompany.game;
+
+public class Arma {
+     private String nome,categoria;
+        private int consdano,danoarma;
+        private int danobarma,danobarmaleve;
+        
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public Arma(int danoarma) {
+        this.danoarma = danoarma;
+    }
+
+    public int getConsdano() {
+        return consdano;
+    }
+
+    public void setConsdano(int consdano) {
+        this.consdano = consdano;
+    }
+    
+
+    public Arma(String nome, String categoria, int consdano) {
+        this.nome = nome;
+        this.categoria = categoria;
+        this.consdano = consdano;
+    }
+
+    public int getDanoarma() {
+        return danoarma;
+    }
+
+    public void setDanoarma(int danoarma) {
+        this.danoarma = danoarma;
+    }
+    
+    
+    
+    
+    
+    
+    public int danoarmabase(){
+        int d12 = (int) (Math.random() * 12) + 1; 
+        danobarma = d12 + consdano;
+        return danobarma;
+    }
+
+    public int getDanobarma() {
+        return danobarma;
+    }
+
+    
+    
+    public int danoarmalevebase(){
+        int d6 = (int) (Math.random() * 6) + 1; 
+        int d4 = (int) (Math.random() * 4) + 1; 
+        danobarmaleve = d6 + d6 + d4 + consdano;
+        return danobarmaleve;
+    }
+    public int getDanobarmaleve() {
+        return danobarmaleve;
+    }
+    
+    public void detalhesArma (){
+        System.out.println("Nome da arma: " + nome);
+        System.out.println("Categoria da arma: " + categoria);
+        
+        
+    }
+
+    public void detalhesArmaLeve(){
+        System.out.println("Nome da arma: " + nome);
+        System.out.println("Categoria da arma: " + categoria);
+        
+        
+        
+        
+    }
+    
+    
+    
+   
+}
