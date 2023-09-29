@@ -1,0 +1,19 @@
+
+package com.mycompany.game;
+
+public class Pocao {
+    private int pocao;
+
+    public Pocao(int pocao) {
+        this.pocao = pocao;
+    }
+
+    public int getPocao() {
+        return pocao;
+    }
+    
+    
+    
+    
+    
+}
