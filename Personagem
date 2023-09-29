@@ -1,0 +1,131 @@
+package com.mycompany.game;
+public class Personagem {
+    private String nome;
+    private int ataqueb,defesab,pvb,forcab,constb,agilityb,destrezab,pontosbase,pontosrecomp;
+    private int danoataque;
+            
+    public  Personagem(){
+        this.forcab = 10;
+        this.defesab = 10;
+        this.constb = 10;
+        this.destrezab = 10;
+        this.agilityb = 10;
+        this.pvb = 0;
+        this.pontosbase = 10;
+        this.pontosrecomp= 5;
+        this.danoataque = 0;
+        }
+
+    public void setPontosbase(int pontosbase) {
+        this.pontosbase = pontosbase;
+    }
+
+    public void setPontosrecomp(int pontosrecomp) {
+        this.pontosrecomp = pontosrecomp;
+    }
+
+    public void setForcab(int forcab) {
+        this.forcab = forcab;
+    }
+
+    public void setConstb(int constb) {
+        this.constb = constb;
+    }
+
+    public void setAgilityb(int agilityb) {
+        this.agilityb = agilityb;
+    }
+
+    public void setDestrezab(int destrezab) {
+        this.destrezab = destrezab;
+    }
+
+    public Personagem(String nome) {
+       if(nome.length() > 0){
+        this.nome = nome;}
+    }
+
+    public int getPontosbase() {
+        return pontosbase;
+    }
+
+    public int getPontosrecomp() {
+        return pontosrecomp;
+    }
+
+    public void setPvb(int pvb) {
+        this.pvb = pvb;
+    }
+    
+    
+    
+    public void detalhespersonagembase(){
+    System.out.println("Nome do personagem: " + nome);
+    System.out.println("Constituição base: " + constb);
+    System.out.println("forcabase: " + forcab);
+    System.out.println("pv base: " + pvb);
+    System.out.println("Agility base: " + agilityb);
+    System.out.println("Destreza base: " + destrezab);
+}
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public int getAtaqueb() {
+        return ataqueb;
+    }
+
+    public int getDefesab() {
+        return defesab;
+    }
+
+    public int getPvb() {
+        return pvb;
+    }
+
+    public int getForcab() {
+        return forcab;
+    }
+
+    public int getConstb() {
+        return constb;
+    }
+
+    public int getAgilityb() {
+        return agilityb;
+    }
+
+    public int getDestrezab() {
+        return destrezab;
+    }
+    
+   public boolean estavivo(){
+       return pvb >0;
+   }
+
+    public int getDanoataque() {
+        return danoataque;
+    }
+
+    public void setDanoataque(int danoataque) {
+        this.danoataque = danoataque;
+    }
+
+    public void setDefesab(int defesab) {
+        this.defesab = defesab;
+    }
+
+    
+  
+    
+    
+    
+}
+    
+
