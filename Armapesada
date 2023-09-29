@@ -1,0 +1,30 @@
+
+package com.mycompany.game;
+
+public class Armapesada {
+     private String nome;
+    private int consdano;
+    private int categoria;
+    
+    
+    
+    
+    public Armapesada(String nome, int consdano, int categoria) {
+        this.nome = "Long Sword";
+        this.consdano = 5;
+        this.categoria = 2;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getConsdano() {
+        return consdano;
+    }
+
+    public int getCategoria() {
+        return categoria;
+    }
+
+}
