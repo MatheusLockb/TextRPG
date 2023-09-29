@@ -1,0 +1,44 @@
+
+package com.mycompany.game;
+
+public class Armadura {
+    private int constdefesa;
+    private String nome;
+
+    public Armadura(int constdefesa, String nome) {
+        this.constdefesa = constdefesa;
+        this.nome = nome;
+    }
+
+    public int getConstdefesa() {
+        return constdefesa;
+    }
+
+    public void setConstdefesa(int constdefesa) {
+        this.constdefesa = constdefesa;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public void detalhesarmor(){
+        System.out.println("      ----------------------------------------------         ");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("                Armadura selecionada: " + nome);
+        System.out.println("            Defesa base da armadura: " + constdefesa);
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("      ----------------------------------------------         ");
+    }
+    
+
+    
+   
+    
+    
+   
+}
