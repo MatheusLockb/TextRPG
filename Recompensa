@@ -1,0 +1,23 @@
+
+package com.mycompany.game;
+
+public class Recompensa {
+    private String nivel;
+
+    public Recompensa(String nivel) {
+        this.nivel = nivel;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
+    
+           
+    
+    
+    
+}
