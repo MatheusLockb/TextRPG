@@ -1,0 +1,50 @@
+
+package com.mycompany.game;
+import java.util.Scanner;
+public class Inserts {
+    
+    static Scanner scanner = new Scanner (System.in);
+    
+    public static int leitura (String prompt, int userinsert){
+        
+        int input;
+        do{
+            System.out.println(prompt);
+            try{
+            input = Integer.parseInt(scanner.next());
+            }catch(Exception e){
+                input = -1;
+                System.out.println("por favor insira um valor inteiro  x > 1 !!!!!");
+            }
+        }while(input <1 || input> userinsert);
+         return input;
+    }
+    
+    
+    public static void limparTerminal(){
+        for (int i = 0; i < 100; i++){
+            System.out.println();
+        }
+                                    }
+    
+    public static void separador(int n){
+        for (int i = 0; i < n; i++){
+            System.out.println("-");
+            System.out.println();
+        }
+ 
+}
+    public static void cabecalho(String titulo){
+        separador(30);
+        System.out.println(titulo);
+        separador(30);
+}
+    
+    public static void continuar(){
+        System.out.println("\nInsira algo para continuar... ");
+        scanner.next();
+        
+    }
+    
+    
+}
