@@ -1,0 +1,486 @@
+
+package com.mycompany.game;
+
+import java.lang.reflect.Array;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+public class Game {
+
+    public static void main(String[] args) {
+        
+        
+        Inserts.limparTerminal(); 
+       
+        
+         
+         
+         
+        System.out.println(" *** OLÁ PESSOAL RODRIGO GÓES AQUI, HOJE IREMOS ACOMPANHAR A JORNADA DE UM RAPAZ EM BUSCA DE SE TORNAR AESTHETIC \n VOCÊ NÃO QUER SE RENDER A PRESSÃO DA REDES SOCIAIS NÃO É MESMO ?"); 
+        Inserts.leitura("\n1. para continuar............ ", 1);
+        Inserts.limparTerminal();
+        System.out.println("QUEM NÃO QUER FICAR GRANDE ? QUEM NÃO QUER FICAR SECO ? EU SEI QUE VOCê QUER TAMBÉM RAPAZ \n PORÉM TEMOS QUE SEGUIR O CAMINHO NATURAL \n NATURAL É A FONTE DA JUVENTUDE E A COISA CERTA A SE FAZER !!!");
+        Inserts.leitura("\n1. para continuar............ ", 1);
+        Inserts.limparTerminal();
+        System.out.println("ME FALE SEU NOME RAPAZ E VAMOS JUNTOS AO CAMINHO NATURAL !!!!!!");
+        
+        
+        Scanner nome = new Scanner(System.in);
+         System.out.println("\nDigite o nome do seu Personagem: ");
+        String nomeDoPersonagem = nome.nextLine();
+        
+        //CONSTRUÇÃO DO PERSONAGEM
+        
+        //INSERIR NOME PERSONAGEM
+        
+        Personagem player1 = new Personagem();
+         player1.setNome(nomeDoPersonagem);
+        System.out.println("\n ENTÃO SEU NOME É  " + player1.getNome() + " É UM BELO NOME RAPAZ !!!");
+        
+        for (int i=0; i<1;i++) {
+            int pv = Dados.rolard6()+ Dados.rolard6()+Dados.rolard6()+ player1.getConstb();
+            int pvplayer = player1.getPvb()+pv;
+             player1.setPvb(pvplayer);
+             
+       System.out.println("");
+       
+       
+       //INSERIR PONTOS DE ATRIBUTO BASE
+        
+        Scanner pontos = new Scanner(System.in);
+        System.out.println("Você recebeu " + player1.getPontosbase()+ " pontos para distribuir entre suas caracteristicas, por favor escolha primeiro a caracteristica e em seguida a quantidade de pontos que deseja inserir: ");
+        while(player1.getPontosbase()> 0){
+            System.out.println("Caracteristicas Disponiveis: ");
+            System.out.println("1. Força: "+ player1.getForcab());
+            System.out.println("2. Constituição: "+ player1.getConstb());
+            System.out.println("3. Agilidade: " +player1.getAgilityb());
+            System.out.println("4. Destreza: " + player1.getDestrezab() );
+            
+            //LOOP PARA INSERT DOS PONTOS DE ATRIBUTOS
+            int escolha = pontos.nextInt();
+            if (escolha == 0 ){
+                break;
+            }else if (escolha >=1&& escolha <=4){
+                int adicionarpts = pontos.nextInt();
+                
+                
+                if (adicionarpts >= 1 && adicionarpts <= player1.getPontosbase()) {
+                    Inserts.separador(3);
+                   player1.setPontosbase(player1.getPontosbase() - adicionarpts);
+                switch (escolha) {
+                   
+                case 1:
+                    
+                    player1.setForcab(player1.getForcab() + adicionarpts);
+                    System.out.println("Você adicionou " + adicionarpts + " pontos em força ");
+                    Inserts.separador(3);
+                    System.out.println("Você possui mais "+player1.getPontosbase()+" para adicionar, repita o processo até não possuir mais pontos:  ");
+                    
+                    
+                    break;
+                case 2:
+                    
+                    player1.setConstb(player1.getConstb() + adicionarpts);
+                    System.out.println("Você adicionou " + adicionarpts + " pontos em constituição ");
+                    Inserts.separador(3);
+                    System.out.println("Você possui mais "+player1.getPontosbase()+" para adicionar, repita o processo até não possuir mais pontos:  ");
+                    
+                    
+                    break;
+                case 3:
+                    player1.setAgilityb(player1.getAgilityb() + adicionarpts);
+                    System.out.println("Você adicionou " + adicionarpts + " pontos em agilidade ");
+                    Inserts.separador(3);
+                    System.out.println("Você possui mais "+player1.getPontosbase()+" para adicionar, repita o processo até não possuir mais pontos:  ");
+                    
+                    
+                    break;
+                case 4:
+                    player1.setDestrezab(player1.getDestrezab() + adicionarpts);
+                    
+                    System.out.println("Você adicionou " + adicionarpts + " pontos em destreza ");
+                    Inserts.separador(3);
+                    System.out.println("Você possui mais "+player1.getPontosbase()+" para adicionar, repita o processo até não possuir mais pontos: ");
+                    
+                    
+                    break;
+                    
+            }
+        } if(player1.getPontosbase()<=0){
+            System.out.println ("Você não possui mais nenhum ponto, prossiga para a seleção de armas: ");
+            
+            }
+                else {
+            System.out.println("VOCÊ ESTÁ TENTANDO TRAPACEAR RAPAZ ????? NÃO PODE INSERIR MAIS PONTOS DO QUE VOCÊ TEM \n JESUS KID !! !!!!!" );
+            
+            System.out.println("Pontos restantes: " + player1.getPontosbase());
+        }
+    } else {
+        System.out.println("Escolha inválida. Escolha uma característica válida (De 1 a 4) ou 0 para sair.");
+        
+        
+    } 
+                Inserts.leitura("Insira 1 para prosseguir: ", 1);
+                
+            }
+        //ESCOLHA DE ARMA
+        
+        
+        //DEFINIÇÃO DAS ARMAS E SEUS RESPECTIVOS DANOS
+        Arma Longsword = new Arma("BARRA DO SUPINO","Pesada",20);
+        Arma Dagger = new Arma("HALTER DE 10KG","Leve",10);
+        Arma Smallbow = new Arma("TIJOLO DA POLIA","Leve",8);
+        Armadura armor1 = new Armadura(10,"CAMISA DA INSIDER");
+        Armadura armor2 = new Armadura(5,"ABADÁ DO CARNAVAL");
+        Armadura armor3 = new Armadura(3,"REGATA");
+        
+        
+        Longsword.setDanoarma(Longsword.danoarmabase() + player1.getForcab());
+        Dagger.setDanoarma(Dagger.danoarmalevebase() + player1.getDestrezab());
+        Smallbow.setDanoarma(Smallbow.danoarmalevebase()+ player1.getDestrezab());
+        
+        
+         Inserts.limparTerminal();
+        
+        System.out.println("Você começa sua vida como mais um na vida de um bodybuilder \n estás tomando sua proteína a caminho da academia para mandar aquele LEGDAY delicioso (você provavelmente irá treinar peito) ");
+        System.out.println("Você entra pela porta da academia e encontra muitos FAKE NATTYS e JUICERS");
+        System.out.println("Nessa jornada você irá precisar de equipamentos para se defender: ");
+        System.out.println("\n ");
+        Inserts.leitura("1. para continuar ...... !!", 1);
+        Inserts.limparTerminal();
+        System.out.println("\nESCOLHA UMA ARMA PARA LUTAR CONTRA OS JUICERS !!! ");
+        System.out.println("1. " + Longsword.getNome());
+        System.out.println("2. " + Dagger.getNome());
+        System.out.println("3. " + Smallbow.getNome());
+        int escolhaArma = pontos.nextInt();
+
+        if (escolhaArma >= 1 && escolhaArma <= 3) {
+            switch (escolhaArma) {
+                
+                case 1:
+                    
+                    System.out.println("WOW , VOCÊ É AGRESSIVO RAPAZ, VOCÊ ESCOLHEU A BARRA DO SUPINO COMO SUA ARMA !!!!");
+                    Longsword.detalhesArma();
+                    Inserts.separador(1);
+                    System.out.println("Dano da arma:" + Longsword.getDanoarma());
+                    break;
+                    
+                case 2:
+                    
+                    System.out.println("LOOK AT HIM !!! VOCÊ ESCOLHEU UM HALTER DE 10KG PARA BRIGAR !!!");
+                    Dagger.detalhesArmaLeve();
+                    Inserts.separador(1);
+                    System.out.println("Dano da arma: " + Dagger.getDanoarma());
+                    break;
+                    
+                case 3:
+                    
+                    System.out.println("JESUS KID !! VOCÊ ESCOLHEU O TIJOLO DA POLIA !! CALM DOWN MY FRIEND !!");
+                    Smallbow.detalhesArmaLeve();
+                    Inserts.separador(1);
+                    System.out.println("Dano da arma: " + Smallbow.getDanoarma());
+                    break;
+            }
+        } else {
+            System.out.println("Escolha uma opção de 1 a 3.");
+        }
+            Inserts.leitura("Insira 1 para prosseguir: ", 1);
+            Inserts.limparTerminal();
+            
+            
+            // ESCOLHA ARMADURA
+            
+            System.out.println("\n PARA LHE EQUIPAR NA LUTA CONTRA OS JUICERS E FAKE NATTYS ESCOLHA ALGO PARA SERVIR COMO ARMADURA  !!!!");
+            System.out.println("1. " + armor1.getNome());
+            System.out.println("2. "+ armor2.getNome());
+            System.out.println("3." + armor3.getNome());
+            
+            
+            int escolhaArmadura = pontos.nextInt();
+            if (escolhaArmadura >= 1 && escolhaArmadura <= 3) {
+            switch (escolhaArmadura) {
+                
+                case 1:
+                    System.out.println("YOU LOOK AESTHETIC, AS CAMISAS DA INSIDER SÃO AS MELHORES, ELAS DEFINEM BEM SEUS MUSCULOS, PARABÉNS PELA ESCOLHA RAPAZ !!!");
+                    armor1.detalhesarmor();
+                    
+                    break;
+                    
+                case 2:
+                    
+                    System.out.println("PARECE QUE VOCÊ GOSTA DE UMA BAGUNCINHA NÃO É MESMO , O ABADÁ DO CARNAVAL É UMA EXCELENTE ESCOLHA \nISSO MOSTRA QUE VOCÊ JÁ NÃO É UM INICIANTE RAPAZ");
+                    armor2.detalhesarmor();
+                    
+                    break;
+                    
+                case 3:
+                    System.out.println("UMA REGATA ? VOCÊ QUER MOSTRAR SEUS NATTY GAINS, os seus GANHOS NATURAIS, É UMA ÓTIMA ESCOLHA PARA TE DEFENDER");
+                    armor3.detalhesarmor();
+                    
+                    break;
+            }
+            
+            
+        }       else {
+            System.out.println("Escolha uma opção de 1 a 3.");
+        }
+            Inserts.leitura("1. para prosseguir ....... ", 1);
+            Inserts.limparTerminal();
+   
+        
+
+        
+        
+        
+        
+         Inserts.separador(3);
+         
+        player1.detalhespersonagembase();
+        
+        Inserts.separador(2);
+        Inserts.leitura("Insira 1 para prosseguir: ", 1);
+        //nome.close();
+        
+        Inserts.limparTerminal(); 
+        
+       // DEFINIÇÃO INICIO DO COMBATE E LISTA DE INIMIGOS
+       
+       
+        List<Enemy1> listadeinimigos1 = new ArrayList<>();
+        listadeinimigos1.add (new Enemy1 ("RAMON DINO", 10, 13, 40, 5, 5, 5, 5));
+        listadeinimigos1.add (new Enemy1 ("SAM SULEK", 8, 13, 40, 5, 5, 5, 5));
+        listadeinimigos1.add (new Enemy1 ("DAVID LAID", 13, 13, 40, 5, 5, 5, 5));
+        listadeinimigos1.add (new Enemy1 ("CHRIS BUMSTEAD (O SIBÃN)", 13, 5, 40, 5, 5, 5, 5));
+        listadeinimigos1.add (new Enemy1 ("JAY CUTLER", 10, 13, 40, 5, 5, 5, 5));
+        listadeinimigos1.add (new Enemy1 ("POPE FRANCIS", 10, 13, 40, 5, 5, 5, 5));
+       
+        Random random = new Random();
+        Enemy1 inimigoprimeirocombate = listadeinimigos1.get(random.nextInt(3));
+        Enemy1 inimigosegundocombate =   listadeinimigos1.get(3+ random.nextInt(2));    
+        Enemy1 finalboss =  listadeinimigos1.get(5);
+        
+        
+        //DEFININDO VALOR BASE DA POÇÃO
+        
+        Pocao pocao1 = new Pocao(5);
+                
+        Enemy1[] inimigoselecionado = {inimigoprimeirocombate,inimigosegundocombate,finalboss};
+        
+        int inimigoatual = 0;
+        
+        while (inimigoatual < inimigoselecionado.length && player1.estavivo()){
+            
+            Enemy1 inimigo1 = inimigoselecionado [inimigoatual];  
+             
+            //CONDIÇÃO PARA AMBOS VIVOS E COMBATE ATIVO
+            boolean combateAtivo = true;
+            boolean defesaDobrada = false;
+            //se der merda apagar a linha de baixo 21:14h
+            System.out.println(" PARECE QUE VOCÊ VAI PULAR MAIS UM LEGDAY "+player1.getNome()+" ,JESUS KID !!!!!!\n ");
+            System.out.println("AO CHEGAR NA BARRA DO SUPINO ALGO SUSPEITO ACONTECE !!!!! ");
+            Inserts.leitura("1. para continuar..................", 1);
+            
+            System.out.println("PARECE QUE O JUICER: " +inimigo1.getNome()+ " ESTÁ TENTANTO TE CONVENCER A USAR O SUCO, SE PREPARE PARA A BATALHA!!, O INIMIGO POSSUI  "+inimigo1.getPvb() +" PONTOS DE VIDA. WOW LOOK AT HIM !!!");
+            //condição de continuar visto os dois estando vivos
+            
+            while(player1.estavivo()&& inimigo1.estavivo() && combateAtivo) {
+            System.out.println("Escolha uma ação de combate");
+            System.out.println("1. ATACAR");
+            System.out.println("2. POSAR PARA DEFENDER");
+            System.out.println("3. USAR O SUCO ");
+            
+            //SETANDO DANO ATAQUE DE ACORDO COM A ARMA
+            Scanner scanner = new Scanner(System.in);
+           
+            int escolha = scanner.nextInt();
+                switch(escolha){
+                    //caso ataque
+                    case 1: 
+                        
+                      player1.setDanoataque(0);
+                    if(escolhaArma ==1 ){
+                        player1.setDanoataque(Longsword.getDanoarma());
+             } else if (escolhaArma == 2) {
+            player1.setDanoataque(Dagger.getDanoarma());
+            } else {
+            player1.setDanoataque(Smallbow.getDanoarma());
+        }   inimigo1.setPvb(inimigo1.getPvb() - player1.getDanoataque());
+        
+             if (inimigo1.getPvb() <= 0) {
+                    System.out.println("O JUICER FOI CONVENCIDO A FICAR NATURAL!! STAY NATTY KIDS ");
+                     combateAtivo = false;
+                 } else {
+            int danoinimigo = inimigo1.getAtaqueb() - player1.getPvb();
+            player1.setPvb(player1.getPvb() - danoinimigo);
+            if (player1.getPvb() <= 0) {
+                System.out.println("VOCÊ SUCUMBIU AOS ESTERÓIDES !!! ");
+                 combateAtivo = false;
+            }
+        }
+                break;
+        
+                 default:
+                 System.out.println("Opção inválida");
+                 break;
+                  //CASO O JOGADOR DEFENDA 
+                 case 2:
+                     if (!defesaDobrada){
+                        player1.setDefesab(player1.getDefesab() * 2);
+                        defesaDobrada = true;
+                        System.out.println("Você POSOU e está BEM AESTHETIC: defesa dobrada por 1 turno !!!!");
+                     }else {
+                     System.out.println("Sua defesa já está dobrada.");
+                             }
+                        break;
+                        
+                        // CASO JOGADOR USE POCAO
+                 case 3:
+                     
+                     player1.setPvb(pocao1.getPocao()+ player1.getPvb());
+                     System.out.println("Você tomou o SUCO rapaz, está se sentindo melhor ? You are looking like captain america !! você aumentou sua vida para " +player1.getPvb());
+                     
+                     break;
+                     
+                     
+                 
+                    } 
+                
+                
+                 //A PARTIR DAQUI A AÇÃO DO INIMIGO IRÁ COMEÇAR
+                if (inimigo1.estavivo()) {
+                     int acaoInimigo = new Random().nextInt(3);
+                    switch (acaoInimigo) {
+                        
+                        //NPC ATACANDO
+                        case 1:
+           
+                        int danoinimigo = inimigo1.getAtaqueb();
+                         player1.setPvb(player1.getPvb() - danoinimigo);
+                        System.out.println(inimigo1.getNome() + " atacou e causou " + danoinimigo + " pontos de dano a você.");
+                            if (player1.getPvb() <= 0) {
+                         System.out.println("VOCÊ SUCUMBIU AOS ESTERÓIDES !!! ");
+                         combateAtivo = false;
+            }
+                        
+                        break;
+                        //NPC DEFENDENDO
+                            
+                        case 2:
+                            if (!defesaDobrada){
+                            inimigo1.setDefesab(inimigo1.getDefesab()*2);
+                            System.out.println(inimigo1.getNome() + " POSOU AESTHETIC PARA DEFESA E AUMENTOU SEU VALOR DE DEFESA PARA " + inimigo1.getDefesab()+" POR 1 TURNO");
+                            
+                            
+                            
+                            }else {
+                            System.out.println("DEFESA JÁ ESTÁ DOBRADA, VOCÊ ESTÁ TENTANDO ABUSAR RAPAZ ??? ");
+                            
+                            break;
+                            }
+                            
+                            //NPC POCAO
+                        case 3:
+           
+                     inimigo1.setPvb(inimigo1.getPvb()+ pocao1.getPocao());
+                     System.out.println(inimigo1.getNome() + " USOU DO SUCO E CUROU SUA VIDA PARA:  " + inimigo1.getPvb() );
+                        break;
+                        
+                        
+                        }
+                    
+                    if(!player1.estavivo()){
+                        System.out.println("VOCÊ SUCUMBIU PARA OS JUICERS, FOI UMA BELA JORNADA RAPAZ !!!!! ");
+                        break;
+                    } 
+                    
+                    //VERIFICAÇÃO SE O INIMIGO FOI DERROTADO
+                    }
+                    
+                    
+                    
+                    Inserts.separador(1);
+                    System.out.println ("\nESSES SÃO SEUS PONTOS DE VIDA APÓS ESSE ROUND: "+ player1.getPvb());
+                    System.out.println ("\nOS PONTOS DE VIDA DO JUICER SÃO ESSES: " + inimigo1.getPvb());
+                    Inserts.separador(1);
+                    
+                    if (inimigo1.getPvb() <= 0) {
+                        
+                        combateAtivo = false;
+                        Inserts.separador(2);
+                        
+                        
+                        //SISTEMA DE RECOMPENSA APÓS O FIM DA BATALHA
+                        
+                        Inserts.separador(4);
+                        
+                        
+                        while(player1.getPontosrecomp()> 0 ){
+                     System.out.println("DISTRIBUA " + player1.getPontosrecomp() + " PONTOS PARA LUTAR CONTRA O PROXIMO JUICER: !!");
+                    System.out.println("1. FORÇA: " + player1.getForcab());
+                     System.out.println("2. CONSTITUIÇÃO : " + player1.getConstb());
+                        System.out.println("3. AGILIDADE  " + player1.getAgilityb());
+                         System.out.println("4. DESTREZA " + player1.getDestrezab());
+                             
+
+            int escolhaCaracteristica = scanner.nextInt();
+            if (escolhaCaracteristica >= 1 && escolhaCaracteristica <= 4) {
+                System.out.println("Quantos pontos deseja adicionar a esta característica?");
+                int pontosParaAdicionar = scanner.nextInt();
+                if (pontosParaAdicionar <= player1.getPontosrecomp()) {
+                    player1.setPontosrecomp(player1.getPontosrecomp() -pontosParaAdicionar); 
+                    switch (escolhaCaracteristica) {
+                        case 1:
+                            player1.setForcab(player1.getForcab() + pontosParaAdicionar);
+                            break;
+                        case 2:
+                            player1.setConstb(player1.getConstb() + pontosParaAdicionar);
+                            break;
+                        case 3:
+                            player1.setAgilityb(player1.getAgilityb() + pontosParaAdicionar);
+                            break;
+                        case 4:
+                            player1.setDestrezab(player1.getDestrezab() + pontosParaAdicionar);
+                            break;
+                    }
+                } else {
+                    System.out.println("ESTÁ TENTANDO ME ENROLAR RAPAZ ? NÃO PODE ATRIBUIR MAIS PONTOS DO QUE POSSUI !!!");
+                }
+            } else {
+                System.out.println("ESCOLHA UMA CARACTERISTICA ENTRE 1 E 4 KID");
+            }
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    }
+                
+                System.out.println("Vida do BODYBUILDER: " + player1.getPvb());
+                System.out.println("Vida do JUICER: "+ inimigo1.getPvb())    ;  
+                
+                
+                
+                
+                
+                
+                 inimigoatual++;
+                } 
+            
+               
+          
+            } //for
+        
+        nome.close();
+            
+           
+            
+          
+        
+       
+             
+    }//Main
+        
+    }//class
+
