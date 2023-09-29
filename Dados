@@ -1,0 +1,26 @@
+
+package com.mycompany.game;
+import java.util.Random;
+
+public class Dados {
+   private int d4,d6,d12;
+    
+    
+    
+    public static int rolard6(){
+    Random d6 = new Random();
+        return d6.nextInt(6);
+    }
+    public static int rolard12(){
+       Random d12 = new Random();
+        return d12.nextInt(6);
+    }
+    public static int rolard4(){
+        Random d4 = new Random();
+        return d4.nextInt(6);
+    }
+    
+    
+    
+    
+}
