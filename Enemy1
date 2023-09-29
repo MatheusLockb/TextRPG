@@ -1,0 +1,105 @@
+
+package com.mycompany.game;
+
+public class Enemy1 {
+     private String nome;
+    private int ataqueb,defesab,pvb,forcab,constb,agilityb,destrezab;
+    
+    
+    public Enemy1(String nome, int ataqueb, int defesab, int pvb, int forcab, int constb, int agilityb, int destrezab) {
+        this.nome = nome;
+        this.ataqueb = ataqueb;
+        this.defesab = defesab;
+        this.pvb = pvb;
+        this.forcab = forcab;
+        this.constb = constb;
+        this.agilityb = agilityb;
+        this.destrezab = destrezab;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getAtaqueb() {
+        return ataqueb;
+    }
+
+    public void setAtaqueb(int ataqueb) {
+        this.ataqueb = ataqueb;
+    }
+
+    public int getDefesab() {
+        return defesab;
+    }
+
+    public void setDefesab(int defesab) {
+        this.defesab = defesab;
+    }
+
+    public int getPvb() {
+        return pvb;
+    }
+
+    public void setPvb(int pvb) {
+        this.pvb = pvb;
+    }
+
+    public int getForcab() {
+        return forcab;
+    }
+
+    public void setForcab(int forcab) {
+        this.forcab = forcab;
+    }
+
+    public int getConstb() {
+        return constb;
+    }
+
+    public void setConstb(int constb) {
+        this.constb = constb;
+    }
+
+    public int getAgilityb() {
+        return agilityb;
+    }
+
+    public void setAgilityb(int agilityb) {
+        this.agilityb = agilityb;
+    }
+
+    public int getDestrezab() {
+        return destrezab;
+    }
+
+    public void setDestrezab(int destrezab) {
+        this.destrezab = destrezab;
+    }
+    
+    public boolean estavivo(){
+       return pvb >0;
+   }
+    
+    
+    
+    
+    
+    
+    
+    public void detalhesenemy1base(){
+    System.out.println("Nome do inimigo: " + nome);
+    System.out.println("Constituição base: " + constb);
+    System.out.println("forcabase: " + forcab);
+    System.out.println("pv base: " + pvb);
+    System.out.println("Agility base: " + agilityb);
+}
+ 
+    
+    
+    
+}
